@@ -9,15 +9,31 @@
       </div>
       <div class="panel-body">
         <div class="pull-left">
-          <input type="number" class="form-control" placeholder="Quantity" v-model="quantity" />
+          <input 
+            type="number" 
+            class="form-control" 
+            placeholder="Quantity" 
+            v-model="quantity"
+            :class="{danger: inSufficientFunds}"
+          />
         </div>
       </div>
       <div class="pull-right">
-        <button class="btn btn-success" @click="buyStock">Buy</button>
+          <button
+          class="btn btn-success"
+          @click="buyStock"
+          :disabled="inSufficientFunds || quantity <= 0 || !Number.isInteger(parseInt(quantity))"
+        >{{ inSufficientFunds ? 'Insufficient Funds' : 'Buy' }}</button>         
       </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+  .danger {
+    border: 1px solid red;
+  }
+</style>
 
 <script>
 export default {
@@ -27,14 +43,23 @@ export default {
       quantity: 0
     };
   },
+  computed: {
+    funds() {
+      return this.$store.getters.funds;
+    },
+    inSufficientFunds() {
+      return this.quantity * this.stock.price  > this.funds;
+    }
+  },
   methods: {
     buyStock() {
       const order = {
         stockId: this.stock.id,
         stockPrice: this.stock.price,
         quantity: this.quantity
-      }
-      console.log(order)
+      };
+      //console.log(order);
+      this.$store.dispatch('buyStock', order);
       this.quantity = 0;
     }
   }
