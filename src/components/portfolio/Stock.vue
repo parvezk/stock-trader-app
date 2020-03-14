@@ -9,7 +9,7 @@
       </div>
       <div class="panel-body">
         <div class="pull-left">
-          <input type="number" class="form-control" placeholder="Quantity" v-model="quantity" />
+          <input type="number" class="form-control" placeholder="Quantity" v-model="quantity" :class="{danger: insufficientQuantity}" />
         </div>
       </div>
       <div class="pull-right">
@@ -17,7 +17,7 @@
           class="btn btn-success"
           @click="sellStock"
           :disabled="insufficientQuantity || quantity <= 0 || !Number.isInteger(parseInt(quantity))"
-        >{{ insufficientQuantity ? 'Not enough Stocks ' : 'Sell'}}</button>
+        >{{ insufficientQuantity ? 'Not enough ' : 'Sell'}}</button>
       </div>
     </div>
   </div>
