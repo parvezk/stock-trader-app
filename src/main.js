@@ -11,9 +11,7 @@ Vue.use(VueResource);
 
 Vue.http.options.root = "https://stock-trader-c67dd.firebaseio.com/";
 
-Vue.filter('currency', value => {
-  return '$' + value.toLocaleString();
-})
+Vue.filter('currency', value => '$' + value.toLocaleString());
 
 const router = new VueRouter({
   mode: 'history',
