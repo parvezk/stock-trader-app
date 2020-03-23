@@ -31,7 +31,7 @@
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
-            >Save & Load</a>
+            >Save &amp; Load</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
                 <a href="#" @click="saveData">Save Data</a>

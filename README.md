@@ -1,5 +1,7 @@
-# stock-trader-app
-Stocker Trader Web Application
+# Vue.js Components
+A collection of Vue.js components
+
+- Stocker Trader Web Application
 
 ## Build Setup
 
