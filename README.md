@@ -2,6 +2,7 @@
 A collection of Vue.js components
 
 - Stocker Trader Web Application
+- 
 
 ## Build Setup
 
