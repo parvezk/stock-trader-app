@@ -1,13 +1,49 @@
 <!DOCTYPE html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>outputting data</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
-  </head>
-  <body>
-    <script src="" async defer></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="">
+</head>
+
+<body>
+  <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+  <div id="exercise">
+    <div>
+      <p>Current Value: {{ value }}</p>
+      <button @click="value += 5">Add 5</button>
+      <button @click="value += 1">Add 1</button>
+      <p>{{ result }}</p>
+    </div>
+    <div>
+      <input type="text">
+      <p>{{ value }}</p>
+    </div>
+  </div>
+  <script src="" async defer>
+    new Vue({
+      el: '#exercise',
+      data: {
+        value: 0
+      },
+      computed: {
+        result: function () {
+          return this.value == 37 ? 'done' : 'not there yet';
+        }
+      },
+      watch: {
+        result: function () {
+          var vm = this;
+          setTimeout(function () {
+            vm.value = 0;
+          }, 5000);
+        }
+      }
+    });
+  </script>
+</body>
+
 </html>

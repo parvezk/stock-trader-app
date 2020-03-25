@@ -1,13 +1,64 @@
 <!DOCTYPE html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>outputting data</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
-  </head>
-  <body>
-    <script src="" async defer></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>outputting data</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="">
+</head>
+
+<body>
+  <div id="exercise">
+    <!-- 1) Fill the <p> below with your Name and Age - using Interpolation -->
+    <p>VueJS is pretty cool - {{ name }} - {{ age }}</p>
+    <!-- 2) Output your age, multiplied by 3 -->
+    <p>{{ age * 3 }} </p>
+    <!-- 3) Call a function to output a random float between 0 and 1 (Math.random()) -->
+    <p> {{ random() }}</p>
+    <p> {{ getRandom(2) }}</p>
+    <!-- 4) Search any image on Google and output it here by binding the "src" attribute -->
+    <div>
+      <img v-bind:src="image" style="width:100px;height:100px">
+    </div>
+    <!-- 5) Pre-Populate this input with your name (set the "value" attribute) -->
+    <div>
+      <input type="text" v-bind:value="name">
+    </div>
+  </div>
+  <script src="" async defer>
+    new Vue({
+      el: '#exercise',
+      data: {
+        name: 'Parvez Kose',
+        age: 00,
+        image: 'https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg'
+      },
+      methods: {
+        random: function () {
+          return Math.random();
+        },
+        getRandom: function (max) {
+          return Math.floor(Math.random() * Math.floor(max))
+        }
+      }
+    });
+
+    /*new Vue({
+      el: '#exercise',
+      data: {
+        name: 'Parvez Kose'
+        age: 00,
+        imageUrl: 'https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313__340.jpg';
+      },
+      methods: {
+        getRandom: function(max) {
+          return Math.floor(Math.random() * Math.floor(max))
+        }
+      }
+    });*/
+  </script>
+</body>
+
 </html>
