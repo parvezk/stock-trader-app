@@ -1,10 +1,10 @@
 <template>
   <div class="row">
     <div class="col-xs-12">
-      <header>
-        <h1>Footer</h1>
-      </header>
-    </div>
+    <footer>
+      <p>All Servers are managed here</p>
+    </footer>
+  </div>
   </div>
 </template>
 

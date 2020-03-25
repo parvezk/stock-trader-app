@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
-console.log('print', Vue)
-console.log('print', App)
+
+export const serverBus = new Vue();
+
 new Vue({
   el: '#app',
   render: h => h(App)
